@@ -27,7 +27,8 @@ jobs:
         string: ${{ github.repository }}
     - name: get commit sha
       id: commithash
-      run: "git_hash=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
+      run: | 
+        "git_hash=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
     - name: Build and push Docker image
       id: push
       uses: docker/build-push-action@v6
